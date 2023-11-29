@@ -7,20 +7,13 @@
     <link rel="icon" href="Logo TS.png" type="image/x-icon">
     <title>Thirty Sports</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <style>
-        body {
-            background-color: #a9fec0;
-        }
-    </style>
+
 </head>
 <body>
 <carousel-text style="color:white">
 <carousel-text style="text-align: center">
 <style>
     .carousel-item {
-            text-align: center;
             color: white; /* Tambahkan properti warna putih di sini */
         }
 
@@ -35,75 +28,56 @@
         }
 </style>
     <!-- Navbar -->
-    <div class="stick">
-        <header class="login">
-            <div class="user-actions">
-                <nav>
-                     <!-- Navbar akan diperbarui oleh JavaScript -->
-                     <ul id="userActions">
-                        <li><a href="daftarmasuk.html" onclick="showForm('loginForm')">Masuk</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <div class="stick">
+            <header class="login">
+                <div class="user-actions">
+                    <nav>
+                        <!-- Navbar akan diperbarui oleh JavaScript -->
+                        <ul id="userActions">
+                            <li><a href="daftarmasuk.html" onclick="showForm('loginForm')">Masuk</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+    
+            <nav class="first-bar container-fluid navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html"><img src="Logo ThirtySport.png" alt="" class="logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="listnavbar navbar-nav mx-auto" style="align-items: center;">
+                            <li class="nav-item"><a class="nav-link" href="produk.html?category=pakaian" >Pakaian</a></li>
+                            <li class="nav-item"><a class="nav-link" href="produk.html?category=raket" >Raket</a></li>
+                            <li class="nav-item"><a class="nav-link" href="produk.html?category=sepatu" >Sepatu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="produk.html?category=tas" >Tas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="produk.html?category=aksesoris" >Aksesoris</a></li>
+                        </ul>
+                </div>
+            </nav>
+        </div>
+    <!-- akhir navbar  -->
 
-        <header class="first-bar">
-            <div>
-                <a href="index.html"><img class="logo" src="Logo ThirtySport.png" alt="Logo Toko Badminton"></a>
-            </div>
-            <div>
-                <nav>
-                    <ul class="listnavbar">
-                        <li><a href="produk.html?category=pakaian" >Pakaian</a></li>
-                        <li><a href="produk.html?category=raket" >Raket</a></li>
-                        <li><a href="produk.html?category=sepatu" >Sepatu</a></li>
-                        <li><a href="produk.html?category=tas" >Tas</a></li>
-                        <li><a href="produk.html?category=aksesoris" >Aksesoris</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-        </header>
-    </div>
-
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleAutoplaying" class="carousel slide container-sm" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <br>
-                <br>
                 <h1 style="color: black;" class="carousel-text">Selamat Datang di Web Kami!</h1>
-                <br>
-                <br>
-                <img src="images/carausel6.jpg" class="rounded mx-auto d-block w-50" alt="...">
-                <br>
-                <br>
+                <img src="images/carausel6.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <br>
-                <br>
                 <h1 style="color: black;" class="carousel-text">Selamat Datang di Web Kami!</h1>
-                <br>
-                <br>
-                <img src="images/carausel2.jpg" class="rounded mx-auto d-block" alt="...">
-                <br>
-                <br>
+                <img src="images/carausel2.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <br>
-                <br>
                 <h1 style="color: black;" class="carousel-text">Selamat Datang di Web Kami!</h1>
-                <br>
-                <br>
-                <img src="images/carausel5.jpg" class="rounded mx-auto d-block w-50" alt="...">
-                <br>
-                <br>
+                <img src="images/carausel5.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev carousel-control-color-danger" type="" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <button class="carousel-control-prev carousel-control-color-danger" type="button" data-target="#carouselExampleAutoplaying" data-slide="prev">
             <img class="arrowleft" src="arrowleft.png" alt="prev">
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button"  data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleAutoplaying" data-slide="next">
             <img class="arrowright" src="arrowright.png" alt="next">
             <span class="visually-hidden">Next</span>
         </button>
@@ -122,6 +96,10 @@
         </header>
     </footer>
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
         // Fungsi showForm
         function showForm(formId) {

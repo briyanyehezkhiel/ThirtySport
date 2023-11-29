@@ -1,8 +1,7 @@
 body {
-
     margin: 0;
     padding:0;
-    background-color: #a9fec0;
+    background-color: #fff !important;
 }
 header {
   animation: slideDown 0.5s ease-out;
@@ -71,7 +70,7 @@ nav a::before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #1bc668; /* Warna garis bawah default */
+  background-color: #347efe; /* Warna garis bawah default */
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;
@@ -85,14 +84,16 @@ nav a:hover::before {
     transition: box-shadow 0.3s ease;
     padding: 10px;
     font-size: small;
-    background-color: #347efe;
+    background-color: #1bc668;
     color: white;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .logo{
     margin-left: 40px;
+    width: auto;
     height: 40px; /* Sesuaikan ukuran logo */
     justify-content: left;
 }
@@ -194,7 +195,6 @@ nav a:hover::before {
   }
   
   .card-body button {
-    animation: pulse 1s infinite;
     transition: background-color 0.3s ease;
     cursor: pointer;
     border: none;
@@ -205,6 +205,20 @@ nav a:hover::before {
     color: #fff;
     border-radius: 10px;
   }
+  .card-body button:hover {
+    animation: pulse 1s normal;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    background-color: rgb(0, 110, 255);
+    font-size: 18px;
+    padding: 16px 0;
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+
   @keyframes pulse {
     0% {
         transform: scale(1);
@@ -235,3 +249,4 @@ nav a:hover::before {
   product-item {
     width: 25%;
   }
+

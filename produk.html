@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Logo TS.png" type="image/x-icon">
     <title>Thirty Sports</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-lZ0+gjekHDJZgCuuz2Z90+GvhD5OYFRX3ldoL+L1p5iEWqDEaVL2wrD5AwYFfpN6" crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
         <style>
             body {
                 background-color: #a9fec0;
@@ -56,49 +53,42 @@
         <header class="login">
             <div class="user-actions">
                 <nav>
-                     <!-- Navbar akan diperbarui oleh JavaScript -->
-                     <ul id="userActions">
+                    <!-- Navbar akan diperbarui oleh JavaScript -->
+                    <ul id="userActions">
                         <li><a href="daftarmasuk.html" onclick="showForm('loginForm')">Masuk</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
 
-        <header class="first-bar">
-            <div>
-                <a href="index.html"><img class="logo" src="Logo ThirtySport.png" alt="Logo Toko Badminton"></a>
-            </div>
-            <div>
-                <nav>
-                    <ul class="listnavbar">
-                        <li><a href="produk.html?category=pakaian" >Pakaian</a></li>
-                        <li><a href="produk.html?category=raket" >Raket</a></li>
-                        <li><a href="produk.html?category=sepatu" >Sepatu</a></li>
-                        <li><a href="produk.html?category=tas" >Tas</a></li>
-                        <li><a href="produk.html?category=aksesoris" >Aksesoris</a></li>
+        <nav class="first-bar container-fluid navbar navbar-expand-lg">
+            <a class="navbar-brand" href="index.html"><img src="Logo ThirtySport.png" alt="" class="logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="listnavbar navbar-nav mx-auto" style="align-items: center;">
+                        <li class="nav-item"><a class="nav-link" href="produk.html?category=pakaian" >Pakaian</a></li>
+                        <li class="nav-item"><a class="nav-link" href="produk.html?category=raket" >Raket</a></li>
+                        <li class="nav-item"><a class="nav-link" href="produk.html?category=sepatu" >Sepatu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="produk.html?category=tas" >Tas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="produk.html?category=aksesoris" >Aksesoris</a></li>
                     </ul>
-                </nav>
-            </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <form id="searchForm">
-                                <label for="pencarian">
-                                    <input class="search-box" type="text" placeholder="Pencarian" id="pencarian">
-                                </label>
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-auto mx-auto">
+                            <form class="form-inline" id="searchForm">
+                                <input class="form-control mr-sm-2 search-box" type="text" placeholder="Pencarian" id="pencarian" style="max-width: 120px; align-items:center; margin-left:0;">
                             </form>
-                            
                         </li>
                     </ul>
-                </nav>
             </div>
-        </header>
+        </nav>
     </div>
+<!-- akhir navbar  -->
 
     <!-- Carousel -->
     <section>
-        <div id="carouselExampleAutoplaying" class="carousel slide pt-4 pb-4" data-bs-ride="carousel">
+        <div id="carouselExampleAutoplaying" class="carousel slide pt-4 pb-4 container" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="gambar_aksesoris/sepatu1.webp" class="rounded mx-auto d-block w-50" alt="Sepatu Badminton Kenier Profesional">
@@ -133,7 +123,7 @@
 <div class="dropdown" style="margin: 50px; margin-left: 100px;">
     <span>Urutkan berdasarkan: </span>
     <button id="sortButton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-    aria-expanded="false" style="background-color:#e60000;">
+    aria-expanded="false" style="background-color:#888;">
     Standar
 </button>
 
@@ -193,7 +183,6 @@
     <div>
         <product-list></product-list>
         <script src="script.js"></script>
-
     </div>
 
     <!-- Footer -->
@@ -209,8 +198,13 @@
             </div>
         </header>
     </footer>
+    <!-- Script JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
