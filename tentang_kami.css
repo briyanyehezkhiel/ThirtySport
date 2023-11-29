@@ -1,0 +1,26 @@
+main {
+    margin-top: 20px;
+}
+.card-body {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* mengatur gambar di main  */
+.img-fluid {
+    width: 200vh;
+    height: 250px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(234, 6, 6, 0.2), 0 6px 20px 0 rgba(6, 16, 70, 0.324);
+}
+
+/* card  */
+.card {
+    box-shadow: 10px 4px 8px 0 rgba(234, 6, 6, 0.2), 0 6px 20px 0 rgba(8, 32, 170, 0.324);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}

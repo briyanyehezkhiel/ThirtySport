@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Logo TS.png" type="image/x-icon">
+    <title>Thirty Sports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-lZ0+gjekHDJZgCuuz2Z90+GvhD5OYFRX3ldoL+L1p5iEWqDEaVL2wrD5AwYFfpN6" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                background-color: #a9fec0;
+            }
+            .card {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+    
+            .card img {
+                flex: 1;
+                object-fit: cover;
+                max-height: 100%; /* Gambar tidak melebihi tinggi maksimum */
+            }
+    
+            .card-body {
+                flex: 1;
+                padding: 10px; /* Atur padding sesuai kebutuhan */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+    
+            .card-title {
+                margin-bottom: 10px; /* Atur margin sesuai kebutuhan */
+            }
+
+            .item {
+                display: none;
+            }
+            
+            .item.show {
+                display: block;
+            }
+            
+        </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="stick">
+        <header class="login">
+            <div class="user-actions">
+                <nav>
+                     <!-- Navbar akan diperbarui oleh JavaScript -->
+                     <ul id="userActions">
+                        <li><a href="daftarmasuk.html" onclick="showForm('loginForm')">Masuk</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <header class="first-bar">
+            <div>
+                <a href="index.html"><img class="logo" src="Logo ThirtySport.png" alt="Logo Toko Badminton"></a>
+            </div>
+            <div>
+                <nav>
+                    <ul class="listnavbar">
+                        <li><a href="produk.html?category=pakaian" >Pakaian</a></li>
+                        <li><a href="produk.html?category=raket" >Raket</a></li>
+                        <li><a href="produk.html?category=sepatu" >Sepatu</a></li>
+                        <li><a href="produk.html?category=tas" >Tas</a></li>
+                        <li><a href="produk.html?category=aksesoris" >Aksesoris</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <form id="searchForm">
+                                <label for="pencarian">
+                                    <input class="search-box" type="text" placeholder="Pencarian" id="pencarian">
+                                </label>
+                            </form>
+                            
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <!-- Carousel -->
+    <section>
+        <div id="carouselExampleAutoplaying" class="carousel slide pt-4 pb-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="gambar_aksesoris/sepatu1.webp" class="rounded mx-auto d-block w-50" alt="Sepatu Badminton Kenier Profesional">
+                </div>
+                <div class="carousel-item">
+                    <img src="gambar_aksesoris/tas2.webp" class="rounded mx-auto d-block w-50" alt="Tas Olahraga Yonex">
+                </div>
+                <div class="carousel-item">
+                    <img src="gambar_aksesoris/raket2.webp" class="rounded mx-auto d-block w-50" alt="Raket Badminton Yonex Multicolor">
+                </div>
+                <div class="carousel-item">
+                    <img src="gambar_aksesoris/aksesoris2.webp" class="rounded mx-auto d-block w-50" alt="Raket Badminton Yonex Multicolor">
+                </div>
+                <div class="carousel-item">
+                    <img src="gambar_aksesoris/baju2.webp" class="rounded mx-auto d-block w-50" alt="Raket Badminton Yonex Multicolor">
+                </div>
+            </div>
+            <button class="carousel-control-prev carousel-control-color-danger" type="button"
+                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <img class="arrowleft" src="arrowleft.png" alt="prev">
+                <span class="visually-hidden">Sebelumnya</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <img class="arrowright" src="arrowright.png" alt="selanjutnya">
+                <span class="visually-hidden">Selanjutnya</span>
+            </button>
+        </div>
+    </section>
+
+   <!-- Dropdown -->
+<div class="dropdown" style="margin: 50px; margin-left: 100px;">
+    <span>Urutkan berdasarkan: </span>
+    <button id="sortButton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+    aria-expanded="false" style="background-color:#e60000;">
+    Standar
+</button>
+
+
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #31edd4c4;">
+    <li><a class="dropdown-item" href="#" onclick="urutkanProduk('standar', 'Standar')">Standar</a></li>
+    <li><a class="dropdown-item" href="#" onclick="urutkanProduk('hargaAsc', 'Harga (Terendah ke Tertinggi)')">Harga (Terendah ke Tertinggi)</a></li>
+    <li><a class="dropdown-item" href="#" onclick="urutkanProduk('hargaDesc', 'Harga (Tertinggi ke Terendah)')">Harga (Tertinggi ke Terendah)</a></li>
+    <li><a class="dropdown-item" href="#" onclick="urutkanProduk('merek', 'Merek')">Merek</a></li>
+</ul>
+</div>
+
+
+    <!-- Produk Detail Modal -->
+<div id="productDetailModal" class="modal" style="display: none;">
+    <div class="modal-dialog" style="max-width: 80%;">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color: #347efe;">
+                <h5 class="modal-title">Detail Produk</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup" onclick="tutupModal()"></button>
+            </div>
+            <div class="modal-body" id="modalContent" style="background-color: #a9fec0;">
+                <div class="row">
+                    <div class="col-md-12 text-center mb-3">
+                        <img src="./${img}" alt="${title}" class="img-fluid">
+                    </div>
+                    <div class="col-md-12">
+                        <h2>${title}</h2>
+                        <p>Rp. ${price}</p>
+                        <p><strong>Merk:</strong> ${brand}</p>
+                        <p><strong>Ukuran:</strong> ${size}</p>
+                        <p><strong>Deskripsi:</strong> ${description}</p>
+                        <p><strong>Spesifikasi:</strong> ${specifications}</p>
+                        <p><strong>Informasi Teknis:</strong> ${technicalInfo}</p>
+                        <p><strong>Rating:</strong> ${rating}</p>
+                        <p><strong>Informasi Tambahan:</strong> ${additionalInfo}</p>
+                        <h3>Fitur:</h3>
+                        <ul>
+                            ${fitur}
+                        </ul>
+                        <h3>Umpan Balik Pelanggan:</h3>
+                        <ul>
+                            ${customerFeedback}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color: #347efe;">
+                <button style="background-color: red;" type="button" class="btn btn-secondary" onclick="tutupModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Produk -->
+    <div>
+        <product-list></product-list>
+        <script src="script.js"></script>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <header class="login">
+            <div class="user-actions">
+                <nav>
+                    <ul>
+                        <li><a href="bantuan.html">Bantuan</a></li>
+                        <li><a href="tentang_kami.html">Tentang Kami</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+
+</html>

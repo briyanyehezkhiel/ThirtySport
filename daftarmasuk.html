@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Logo TS.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #a9fec0;
+        }
+
+        .col-sm {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            padding: 20px;
+            background-color: hsl(203, 39%, 44%);
+            box-shadow: 0 0 10px white;
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .col-sm {
+                width: 50%;
+                padding: 20px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .col-sm {
+                width: 80%;
+                padding: 20px;
+            }
+        }
+    </style>
+    <title>Signup, Login, Reset Password</title>
+</head>
+
+<body>
+    <div class="stick">
+        <header class="login">
+            <div class="user-actions">
+                <nav>
+                    <!-- Navbar akan diperbarui oleh JavaScript -->
+                    <ul id="userActions">
+                        <li><a href="#" onclick="showForm('signupForm')">Daftar</a></li>
+                        <li><a href="#" onclick="showForm('loginForm')">Masuk</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <header class="first-bar">
+            <div>
+                <a href="index.html"><img class="logo" src="Logo ThirtySport.png" alt="Logo Toko Badminton"></a>
+            </div>
+            <div>
+                <nav>
+                    <ul class="listnavbar">
+                        <li><a href="produk.html?category=pakaian" >Pakaian</a></li>
+                        <li><a href="produk.html?category=raket" >Raket</a></li>
+                        <li><a href="produk.html?category=sepatu" >Sepatu</a></li>
+                        <li><a href="produk.html?category=tas" >Tas</a></li>
+                        <li><a href="produk.html?category=aksesoris" >Aksesoris</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <form id="searchForm">
+                                <label style="margin-bottom: 0;" for="pencarian">
+                                    <input class="search-box" type="text" placeholder="Pencarian" id="pencarian">
+                                </label>
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+
+
+                <!-- Form Masuk -->
+                <div class="col-sm m-4 rounded text-light" id="loginForm">
+                    <form onsubmit="login(event)">
+                        <div class="text-center">
+                            <h1 class="text-light">Masuk</h1>
+                            <br>
+                            <div class="mb-3">
+                                <label for="emailLogin" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailLogin" name="emailLogin" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="passwordLogin" class="form-label">Kata Sandi</label>
+                                <input type="password" class="form-control" id="passwordLogin" name="passwordLogin"
+                                    required>
+                            </div>
+                            <div class="mb-3 lupa-kata-sandi">
+                                <a href="#" onclick="showForm('resetPasswordForm')" style="color:black">Reset Kata Sandi</a>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger">Masuk</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Form Daftar -->
+                <div class="col-sm m-4 rounded text-light" id="signupForm" style="display: none;">
+                    <form onsubmit="signup(event)">
+                        <div class="text-center">
+                            <h1 class="text-light">Daftar</h1>
+                            <p>Silahkan Daftar dengan Email Anda!</p>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Nama Pengguna</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailSignup" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailSignup" name="emailSignup" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="passwordSignup" class="form-label">Kata Sandi</label>
+                                <input type="password" class="form-control" id="passwordSignup" name="passwordSignup"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Konfirmasi Kata Sandi</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                    required>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger">Daftar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Form Reset Password -->
+                <div class="col-sm m-4 rounded text-light" id="resetPasswordForm" style="display: none;">
+                    <form onsubmit="resetPassword(event)">
+                        <div class="text-center">
+                            <h1 class="text-light">Reset Kata Sandi</h1>
+                            <p>Masukkan email Anda untuk mereset kata sandi</p>
+                            <div class="mb-3">
+                                <label for="reset-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="reset-email" name="reset-email" required>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger">Reset Kata Sandi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <header class="login">
+            <div class="user-actions">
+                <nav>
+                    <ul>
+                        <li><a href="bantuan.html">Bantuan</a></li>
+                        <li><a href="tentang_kami.html">Tentang Kami</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        // Fungsi showForm
+        function showForm(formId) {
+            var forms = document.getElementsByClassName('rounded');
+            for (var i = 0; i < forms.length; i++) {
+                forms[i].style.display = 'none';
+            }
+
+            document.getElementById(formId).style.display = 'block';
+            resetForm(formId); // Reset formulir saat menampilkan formulir baru
+        }
+
+        // Fungsi resetForm
+        function resetForm(formId) {
+            var form = document.getElementById(formId);
+            var inputs = form.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = '';
+                inputs[i].placeholder = 'Wajib diisi';
+                inputs[i].classList.remove('is-invalid'); // Hapus kelas is-invalid untuk mereset indikator validasi
+            }
+        }
+
+        // Fungsi logout
+        function logout() {
+            // Hapus informasi nama pengguna dari sessionStorage
+            sessionStorage.removeItem('username');
+            // Redirect ke halaman login setelah logout
+            window.location.href = "daftarmasuk.html";
+            // Perbarui navbar dengan opsi Daftar | Masuk
+            updateNavbar(null);
+        }
+        // Fungsi login
+        function login(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir
+
+            var email = document.getElementById("emailLogin").value;
+            var password = document.getElementById("passwordLogin").value;
+
+            // Mendapatkan data pengguna dari localStorage
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Memeriksa apakah pengguna dengan email dan sandi yang cocok ada
+            var authenticatedUser = users.find(function (user) {
+                return user.email === email && user.password === password;
+            });
+
+            if (authenticatedUser) {
+                alert("Login berhasil!");
+                // Simpan nama pengguna di sessionStorage
+                sessionStorage.setItem('username', authenticatedUser.username);
+                // Redirect ke halaman setelah login berhasil setelah selesai menampilkan alert
+                window.location.href = "index.html";
+                // Reset formulir login
+                resetForm('loginForm');
+            } else {
+                alert("Email atau kata sandi salah. Silakan coba lagi.");
+            }
+        }
+
+        // Fungsi signup
+        function signup(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir
+
+            var email = document.getElementById("emailSignup").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("passwordSignup").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Validasi format email
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Format email tidak valid!");
+                return;
+            }
+
+            // Validasi konfirmasi sandi
+            if (password !== confirmPassword) {
+                alert("Konfirmasi sandi tidak sesuai!");
+                return;
+            }
+
+            // Memeriksa apakah semua kolom terisi
+            if (!email || !username || !password || !confirmPassword) {
+                alert("Mohon isi semua kolom!");
+                return;
+            }
+
+            // Mendapatkan data pengguna dari localStorage
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Memeriksa apakah email sudah terdaftar
+            var existingUser = users.find(function (user) {
+                return user.email === email;
+            });
+
+            if (existingUser) {
+                alert("Email sudah terdaftar!");
+                return;
+            }
+
+            // Menambahkan pengguna baru
+            var newUser = {
+                email: email,
+                username: username,
+                password: password
+            };
+
+            users.push(newUser);
+
+            // Menyimpan data pengguna ke localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Alert dan redirect ke halaman login setelah signup berhasil
+            alert("Sign up berhasil! Anda akan diarahkan ke halaman login.");
+            redirectToLogin();
+            // Reset formulir signup
+            resetForm('signupForm');
+        }
+
+        // Fungsi redirectToLogin
+        function redirectToLogin() {
+            // Redirect ke halaman login setelah signup berhasil
+            window.location.href = "daftarmasuk.html";
+        }
+
+        // Fungsi resetPassword
+        function resetPassword(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir
+
+            var resetEmail = document.getElementById("reset-email").value;
+
+            // Validasi format email
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(resetEmail)) {
+                alert("Format email tidak valid!");
+                return;
+            }
+
+            // Mendapatkan data pengguna dari localStorage
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Memeriksa apakah email terdaftar
+            var existingUserIndex = users.findIndex(function (user) {
+                return user.email === resetEmail;
+            });
+
+            if (existingUserIndex !== -1) {
+                // Simulasi pengiriman kode reset password ke email
+                var resetCode = Math.floor(1000 + Math.random() * 9000);
+                alert("Kode reset password: " + resetCode);
+
+                // Hapus username dan password dari localStorage
+                users.splice(existingUserIndex, 1);
+
+                // Menyimpan data pengguna yang telah dihapus ke localStorage
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Redirect ke halaman login
+                showForm('loginForm'); // Menampilkan form login setelah reset berhasil
+                // Reset formulir resetPassword
+                resetForm('resetPasswordForm');
+            } else {
+                alert("Email tidak terdaftar!");
+            }
+        }
+
+        // Fungsi updateNavbar
+        function updateNavbar(username) {
+            var userActions = document.getElementById('userActions');
+            userActions.innerHTML = ""; // Menghapus elemen saat ini di dalam userActions
+        
+            if (username) {
+                // Menambahkan elemen baru dengan nama pengguna
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(username));
+                userActions.appendChild(li);
+            
+                // Menambahkan elemen logout
+                var logoutLi = document.createElement('li');
+                var logoutLink = document.createElement('a');
+                logoutLink.href = "#";
+                logoutLink.appendChild(document.createTextNode("Logout"));
+                logoutLink.onclick = function () {
+                    // Memanggil fungsi logout saat Logout diklik
+                    logout();
+                };
+                logoutLi.appendChild(logoutLink);
+                userActions.appendChild(logoutLi);
+            } else {
+                // Jika pengguna belum login, tampilkan opsi Daftar | Masuk
+                var signupLi = document.createElement('li');
+                signupLi.appendChild(document.createElement('a'));
+                signupLi.firstChild.href = "#";
+                signupLi.firstChild.appendChild(document.createTextNode("Daftar"));
+                signupLi.firstChild.onclick = function () {
+                    showForm('signupForm');
+                };
+                userActions.appendChild(signupLi);
+            
+                var loginLi = document.createElement('li');
+                loginLi.appendChild(document.createElement('a'));
+                loginLi.firstChild.href = "#";
+                loginLi.firstChild.appendChild(document.createTextNode("Masuk"));
+                loginLi.firstChild.onclick = function () {
+                    showForm('loginForm');
+                };
+                userActions.appendChild(loginLi);
+            }
+        }
+
+        // Inisialisasi navbar saat halaman dimuat
+        window.onload = function () {
+            // Mendapatkan nama pengguna dari sessionStorage
+            var username = sessionStorage.getItem('username');
+            // Memanggil fungsi updateNavbar dengan nama pengguna (jika ada)
+            updateNavbar(username);
+        };
+    </script>
+
+
+</body>
+
+</html>
