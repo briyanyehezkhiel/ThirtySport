@@ -961,16 +961,17 @@ class ProductItem extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="card">
-                <img src="./${this._produk.img}" alt="">
+                <img src="./${this._produk.img}" alt="" class="card-img-top">
                 <div class="card-body">
-                    <h2>${this._produk.title}</h2>
-                    <p>Rp. ${this._produk.price}</p>
+                    <h2 class="card-title">${this._produk.title}</h2>
+                    <p class="card-text">Rp. ${this._produk.price}</p>
                     <button class="btn btn-primary" onclick="tampilkanDetail(${produk.indexOf(this._produk)})">Detail</button>
                 </div>                
             </div>
         `;
     }
 }
+
 
 // Element custom untuk menampilkan daftar produk
 class ProductList extends HTMLElement {

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding:0;
-    background-color: #fff !important;
+    background-color: white !important;
 }
 header {
   animation: slideDown 0.5s ease-out;
@@ -250,3 +250,16 @@ nav a:hover::before {
     width: 25%;
   }
 
+  @media (max-width: 767px) {
+    .card img {
+        height: 200px; /* Sesuaikan tinggi gambar untuk tampilan mobile */
+    }
+
+    .card-body h2 {
+        font-size: 16px; /* Sesuaikan ukuran font untuk tampilan mobile */
+    }
+
+    .card-body button {
+        font-size: 14px; /* Sesuaikan ukuran font tombol untuk tampilan mobile */
+    }
+}
